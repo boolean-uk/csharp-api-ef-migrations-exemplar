@@ -10,8 +10,8 @@ namespace exercise.pizzashopapi.Data
             {
                 if(!db.Customers.Any())
                 {
-                    db.Add(new Customer() { Name="Nigel" });
-                    db.Add(new Customer() { Name = "Dave" });
+                    db.Add(new Customer() { Name="Nigel", Address = "South of the Wall" });
+                    db.Add(new Customer() { Name = "Dave", Address="North of the Wall"});
                     db.SaveChanges();
                 }
                 if(!db.Pizzas.Any())
@@ -23,8 +23,10 @@ namespace exercise.pizzashopapi.Data
                 }
 
                 //order data
-                if(1==1)
+                if(!db.Orders.Any())
                 {
+                    db.Orders.Add(new Order() { CustomerId = 3, PizzaId = 2, OrderDate = DateTime.UtcNow }); ;
+                    db.Orders.Add(new Order() { CustomerId = 4, PizzaId = 1, OrderDate = DateTime.UtcNow });
 
                     db.SaveChanges();
                 }
